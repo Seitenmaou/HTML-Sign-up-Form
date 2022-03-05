@@ -14,20 +14,45 @@
         <h2>Vacation Contest Sign-Up Form</h2>
         <form method="get" action="results.html">
             <div>
-                <label for="firstname">Your First Name</label>
-                <input type="text" id="firstname" name="firstname">
-                <label for="lastname">Your Last Name</label>
-                <input type="text" id="lastname" name="lastname">
+                <!-- input first name with min reqs: 2-35 char -->
+                <label for="firstname">Your First Name<span class="required-field">*</label>
+                <input type="text" id="firstname" name="firstname"
+                minlength="2"
+                maxlength="35"
+                required>
+                <!-- input last name with min reqs: 2-35 char -->
+                <label for="lastname">Your Last Name<span class="required-field">*</span></label>
+                <input type="text" id="lastname" name="lastname"
+                minlength="2"
+                maxlength="35"
+                required>
+                <!-- input age with min reqs: 21-120 -->
+                <label for="age">Your Age</label>
+                <input type="number" id="age" name="age"
+                min="21"
+                max="120">
+                <h5>Must be age 21 or older to enter</h5>
+                <!-- input pass with min reqs: 6 char alph num -->
+                <label for="password">Your Secret Code (must be 6 alphanumeric characters).<span class="required-field">*</label>
+                <input type="password" id="password" name="password"
+                title="6 Alphanumeric Character Passcode"
+                pattern="[0-9a-zA-Z]{6}"
+                required>
             </div>
 
             <fieldset>
                 <legend>Your Contact Info</legend>
-                <label for="email">Your Email</label>
-                <input type="email" id="email">
+                <!-- input email with min reqs: email -->
+                <label for="email">Your Email<span class="required-field">*</label>
+                <input type="email" id="email" required>
+                <!-- input address as text -->
                 <label for="address">Street Address</label>
                 <input type="text" id="address">
+                <!-- input city as text -->
                 <label for="city">City</label>
                 <input type="text" id="city">
+                <!-- input state by dropdown -->
+                <!-- NOTE: changed dropdown(select) to datalist -->
                 <!-- <select name="state">  -->
                 <label for="state">Your State</label>
                 <input name="state" list="state-list">
@@ -82,14 +107,20 @@
                     <option value="WV">West Virginia</option>
                     <option value="WY">Wyoming</option>
                     </datalist>
+                    <!-- changed select to datalist -->
                 <!-- </select> -->
+
+                <!-- input zip with min reqs: 5dgt num -->
                 <label for="zip">Zip Code</label>
-                <input type="text" id="zip">
+                <input type="text" id="zip"
+                pattern="[0-9]{5}"
+                title="5-Digit US ZIP Code">
             </fieldset>
             
             <fieldset>
                 <legend>Your Preferences</legend>
                 <h3>Choose your location</h3>
+                <!-- location select radio button -->
                 <div>
                     <label for="aruba">Aruba</label>
                     <input type="radio" id="aruba" name="location" value="Aruba" checked>
@@ -108,12 +139,14 @@
                 </div>
             </fieldset>
 
+            <!-- color selection -->
             <label for="color">Favorite Color</label>
             <input type="color" id="color">
 
             <fieldset>
                 <legend>Extras</legend>
                 <h3>Select any extras</h3>
+                <!-- extra selection checkbox -->
                 <div>
                     <label for="sauna">Sauna Access</label>
                     <input type="checkbox" id="sauna" name="extras" value="Sauna Access">
@@ -123,7 +156,7 @@
                     <input type="checkbox" id="hot-tub" name="extras" value="In-room Hot Tub">
                 </div>
             </fieldset>
-            <!-- TODO: Submit Button -->
+            <!-- submit button -->
             <input type="submit" value="Enter the contest!">
         </form>
     </main>
